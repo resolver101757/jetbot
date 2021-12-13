@@ -1,0 +1,12 @@
+[Unit]
+Description=JetBot stats display service
+
+[Service]
+Type=idle
+User=jetbot
+ExecStart=/bin/sh -c "python3 /home/jetbot/jetbot_ak/stats/stats.py"
+WorkingDirectory=/home/jetbot
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
