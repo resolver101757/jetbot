@@ -13,30 +13,42 @@ class Robot ():
         self.motor_right.run(Adafruit_MotorHAT.FORWARD)
         self.motor_left.run(Adafruit_MotorHAT.RELEASE)
         self.motor_right.run(Adafruit_MotorHAT.RELEASE)
+        self.motor_state = "stop"
         atexit.register(self.turn_off_motors)
+        
 
     def turn_off_motors(self):
         self.motor_left.run(Adafruit_MotorHAT.RELEASE)
         self.motor_right.run(Adafruit_MotorHAT.RELEASE)
+        self.motor_state = "off"
 
     def forward(self):
         self.motor_left.run(Adafruit_MotorHAT.FORWARD)
         self.motor_right.run(Adafruit_MotorHAT.FORWARD)
+        self.motor_state = "forward"
 
     def backward(self):
         self.motor_left.run(Adafruit_MotorHAT.BACKWARD)
         self.motor_right.run(Adafruit_MotorHAT.BACKWARD)
-
+        self.motor_state = "backward"
+    
     def left(self):
         self.motor_left.run(Adafruit_MotorHAT.FORWARD)
         self.motor_right.run(Adafruit_MotorHAT.BACKWARD)
+        self.motor_state = "left"
 
     def right(self):
         self.motor_left.run(Adafruit_MotorHAT.BACKWARD)
         self.motor_right.run(Adafruit_MotorHAT.FORWARD)
+        self.motor_state = "right"
 
     def stop(self):
         self.motor_left.run(Adafruit_MotorHAT.RELEASE)
         self.motor_right.run(Adafruit_MotorHAT.RELEASE)
+        self.motor_state = "stop"
 
-robot = Robot()
+    def set_left_speed(self, speed):
+        self.motor_left.setSpeed(speed)
+        
+    def set_right_speed(self, speed):
+        self.motor_right.setSpeed(speed)
