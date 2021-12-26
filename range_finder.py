@@ -12,11 +12,16 @@ sensor = adafruit_vl6180x.VL6180X(i2c)
 # Swapping for the following would add a +10 millimeter offset to measurements:
 # sensor = adafruit_vl6180x.VL6180X(i2c, offset=10)
 
+sensor.range_conversion_time_us = 400
+
+
 def get_range():
     # Read the range in millimeters and print it.
     range_mm = sensor.range
     print("Range: {0}mm".format(range_mm))
-    time.sleep(1.0)
+    
+
+
     return range_mm
 
 # def main():

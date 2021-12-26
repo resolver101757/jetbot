@@ -17,3 +17,17 @@ def format_logging(log_level , message_to_log , log_file = "logs\logs.log"):
     # print to screen
     if print_to_console == True:
         print("log level: " + log_level + " message : " + message_to_log)
+
+    # write to log file 
+    if log_level == "DEBUG":
+        logging.debug(message_to_log)
+    elif log_level == "INFO":
+        logging.info(message_to_log)
+    elif log_level == "WARNING":
+        logging.warning(message_to_log)
+    elif log_level == "ERROR":
+        logging.error(message_to_log)
+    elif log_level == "CRITICAL":
+        logging.critical(message_to_log)
+    else:
+        logging.debug(message_to_log)
