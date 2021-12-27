@@ -25,3 +25,9 @@ To send the video out to screen in headless mode, enter the docker container as 
 
 Then to display locally, run : "gst-launch-1.0 -v udpsrc port=1234  caps = "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! decodebin ! videoconvert ! autovideosink"
 
+
+#To do 
+
+- The battery plug in isnt working, the light does not come on the jetson nano.  Figure out why. 
+- The configuration files (hydra) needs setting up https://www.youtube.com/channel/UCqYPhGiB9tkShZorfgcL2lA
+- 
